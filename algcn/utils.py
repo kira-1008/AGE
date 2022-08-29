@@ -108,20 +108,20 @@ def load_newdata(dataset_str):
     # swap 0_139 to 140-279 in the original data, to check weather the label data has to be the first several instances
     newgraph={}
     for node, nbs in graph.iteritems():
-	nnode = node
-	if(node in range(140,280)):
-            nnode = node-140
-	elif(node in range(0,140)):
-            nnode = node+140
-	nnbs = []
-	for nb in nbs:
-	    nnb = nb
-	    if(nb in range(140,280)):
-		nnb = nb-140
-	    elif(nb in range(0,140)):
-		nnb = nb+140
-	    nnbs.append(nnb)
-	newgraph[nnode]=nnbs
+      nnode = node
+      if(node in range(140,280)):
+        nnode = node-140
+      elif(node in range(0,140)):
+        nnode = node+140
+      nnbs = []
+      for nb in nbs:
+        nnb = nb
+        if(nb in range(140,280)):
+          nnb = nb-140
+        elif(nb in range(0,140)):
+          nnb = nb+140
+        nnbs.append(nnb)
+        newgraph[nnode]=nnbs
     
     newadj = nx.adjacency_matrix(nx.from_dict_of_lists(newgraph))
     newfeatures=sp.lil_matrix(features.shape, dtype=np.float32)
@@ -247,14 +247,14 @@ def load_randomdata(dataset_str, iter):
         ty_extended = np.zeros((len(test_idx_range_full), y.shape[1]))
         ty_extended[test_idx_range-min(test_idx_range), :] = ty
         ty = ty_extended
-	NL = 2312
-	NC = 120
+        NL = 2312
+        NC = 120
     elif dataset_str == 'cora':
-	NL = 1708
-	NC = 140
+      NL = 1708
+      NC = 140
     else:
-	NL = 18717
-	NC = 60
+      NL = 18717
+      NC = 60
 
     features = sp.vstack((allx, tx)).tolil()
     features[test_idx_reorder, :] = features[test_idx_range, :]
@@ -382,14 +382,14 @@ def load_randompdata(dataset_str, iter):
         ty_extended = np.zeros((len(test_idx_range_full), y.shape[1]))
         ty_extended[test_idx_range-min(test_idx_range), :] = ty
         ty = ty_extended
-	NL = 2312
-	NC = 6
+        NL = 2312
+        NC = 6
     elif dataset_str == 'cora':
-	NL = 1708
-	NC = 7
+      NL = 1708
+      NC = 7
     else:
-	NL = 18717
-	NC = 3
+      NL = 18717
+      NC = 3
 
     features = sp.vstack((allx, tx)).tolil()
     features[test_idx_reorder, :] = features[test_idx_range, :]
@@ -517,11 +517,11 @@ def load_randomaldata(dataset_str, iter, inicount):
         ty_extended = np.zeros((len(test_idx_range_full), y.shape[1]))
         ty_extended[test_idx_range-min(test_idx_range), :] = ty
         ty = ty_extended
-	NL = 2312
+        NL = 2312
     elif dataset_str == 'cora':
-	NL = 1708
+      NL = 1708
     else:
-	NL = 18717
+      NL = 18717
 
     features = sp.vstack((allx, tx)).tolil()
     features[test_idx_reorder, :] = features[test_idx_range, :]
@@ -651,14 +651,14 @@ def load_randomalpdata(dataset_str, iter, inicount):
         ty_extended = np.zeros((len(test_idx_range_full), y.shape[1]))
         ty_extended[test_idx_range-min(test_idx_range), :] = ty
         ty = ty_extended
-	NL = 2312
-	NC = 6
+        NL = 2312
+        NC = 6
     elif dataset_str == 'cora':
-	NL = 1708
-	NC = 7
+      NL = 1708
+      NC = 7
     else:
-	NL = 18717
-	NC = 3
+      NL = 18717
+      NC = 3
 
 
     features = sp.vstack((allx, tx)).tolil()
@@ -788,11 +788,11 @@ def load_randomfulldata(dataset_str, iter):
         ty_extended = np.zeros((len(test_idx_range_full), y.shape[1]))
         ty_extended[test_idx_range-min(test_idx_range), :] = ty
         ty = ty_extended
-	NL = 2312
+        NL = 2312
     elif dataset_str == 'cora':
-	NL = 1708
+      NL = 1708
     else:
-	NL = 18717
+      NL = 18717
 
     features = sp.vstack((allx, tx)).tolil()
     features[test_idx_reorder, :] = features[test_idx_range, :]
